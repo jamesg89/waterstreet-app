@@ -1,21 +1,23 @@
 /**
- * SonicJS Starter Application
+ * SonicJS CMS - Waterstreet Bookkeeping
  *
- * Entry point for your SonicJS headless CMS application
+ * Entry point for the headless CMS application
  */
 
 import { createSonicJSApp, registerCollections } from '@sonicjs-cms/core'
 import type { SonicJSConfig } from '@sonicjs-cms/core'
 
-// Import your collection configurations
-// Add new collections here after creating them in src/collections/
-import blogPostsCollection from './collections/blog-posts.collection'
+// Import collection configurations
+import pagesCollection from './collections/pages.collection'
+import servicesCollection from './collections/services.collection'
+import pricingCollection from './collections/pricing.collection'
 
 // Register collections BEFORE creating the app
 // This ensures they are synced to the database on startup
 registerCollections([
-  blogPostsCollection,
-  // Add more collections here as you create them
+  pagesCollection,
+  servicesCollection,
+  pricingCollection,
 ])
 
 // Application configuration
@@ -25,7 +27,7 @@ const config: SonicJSConfig = {
   },
   plugins: {
     directory: './src/plugins',
-    autoLoad: false  // Set to true to auto-load custom plugins
+    autoLoad: false
   }
 }
 
